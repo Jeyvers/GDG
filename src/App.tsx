@@ -51,32 +51,55 @@ function App() {
           onSetState={setMockQueryState}
           onRefetch={loadTours}
         />
-        <button type="button" className="add-tour-btn" onClick={() => setShowAddForm(true)}>
+        <button
+          type="button"
+          className="add-tour-btn"
+          onClick={() => setShowAddForm(true)}
+          aria-label="Add a new tour"
+        >
           Add Tour
         </button>
       </header>
 
-      <main className="app-main">
+      <main className="app-main" aria-label="Tours content">
         {loading && (
-          <div className="state-message state-message--loading" aria-busy="true">
-            <div className="spinner" />
+          <div
+            className="state-message state-message--loading"
+            aria-busy="true"
+            aria-live="polite"
+            role="status"
+            aria-label="Loading tours"
+          >
+            <div className="spinner" aria-hidden="true" />
             <p>Loading tours...</p>
           </div>
         )}
 
         {!loading && error && (
-          <div className="state-message state-message--error">
+          <div
+            className="state-message state-message--error"
+            role="alert"
+            aria-live="assertive"
+            aria-label="Error loading tours"
+          >
             <p>{error}</p>
           </div>
         )}
 
         {!loading && !error && tours.length === 0 && (
-          <div className="state-message state-message--empty">
+          <div
+            className="state-message state-message--empty"
+            role="status"
+            aria-live="polite"
+            aria-label="No tours"
+          >
             <p>No tours yet. Add one to get started.</p>
           </div>
         )}
 
-        {!loading && !error && tours.length > 0 && <TourList tours={tours} />}
+        {!loading && !error && tours.length > 0 && (
+          <TourList tours={tours} aria-label="Tours list" />
+        )}
       </main>
 
       {showAddForm && (

@@ -13,20 +13,24 @@ export function StateTester({ currentState, onSetState, onRefetch }: StateTester
   }
 
   return (
-    <div className="state-tester">
-      <span className="state-tester__label">Test states:</span>
-      <div className="state-tester__buttons">
+    <div className="state-tester" role="group" aria-label="Simulate API state for testing">
+      <span className="state-tester__label" id="state-tester-label">Test states:</span>
+      <div className="state-tester__buttons" aria-labelledby="state-tester-label">
         <button
           type="button"
-          onClick={() => trigger(MockQueryState.LOADING)}  
+          onClick={() => trigger(MockQueryState.LOADING)}
           className={currentState === MockQueryState.LOADING ? 'active' : undefined}
+          aria-pressed={currentState === MockQueryState.LOADING}
+          aria-label="Simulate loading state"
         >
-          Loading                 
-        </button>           
+          Loading
+        </button>
         <button
           type="button"
           onClick={() => trigger(MockQueryState.ERROR)}
           className={currentState === MockQueryState.ERROR ? 'active' : undefined}
+          aria-pressed={currentState === MockQueryState.ERROR}
+          aria-label="Simulate error state"
         >
           Error
         </button>
@@ -34,6 +38,8 @@ export function StateTester({ currentState, onSetState, onRefetch }: StateTester
           type="button"
           onClick={() => trigger(MockQueryState.EMPTY)}
           className={currentState === MockQueryState.EMPTY ? 'active' : undefined}
+          aria-pressed={currentState === MockQueryState.EMPTY}
+          aria-label="Simulate empty state"
         >
           Empty
         </button>
@@ -41,6 +47,8 @@ export function StateTester({ currentState, onSetState, onRefetch }: StateTester
           type="button"
           onClick={() => trigger(MockQueryState.SUCCESS)}
           className={currentState === MockQueryState.SUCCESS ? 'active' : undefined}
+          aria-pressed={currentState === MockQueryState.SUCCESS}
+          aria-label="Simulate success state"
         >
           Success
         </button>
@@ -48,44 +56,3 @@ export function StateTester({ currentState, onSetState, onRefetch }: StateTester
     </div>
   )
 }
-
-
-// const states = [
-//   MockQueryState.LOADING,
-//   MockQueryState.ERROR,
-//   MockQueryState.EMPTY,
-//   MockQueryState.SUCCESS,
-// ]
-
-// <div className="state-tester__buttons">
-//   {states.map((state) => (
-//     <button
-//       key={state}
-//       type="button"
-//       onClick={() => trigger(state)}
-//       className={currentState === state ? 'active' : undefined}
-//     >
-//       {state.charAt(0) + state.slice(1).toLowerCase()} {/* "LOADING" -> "Loading" */}
-//     </button>
-//   ))}
-// </div>
-
-// const states = [
-//   { state: MockQueryState.LOADING, label: 'Loading' },
-//   { state: MockQueryState.ERROR, label: 'Error' },
-//   { state: MockQueryState.EMPTY, label: 'Empty' },
-//   { state: MockQueryState.SUCCESS, label: 'Success' },
-// ]
-
-// <div className="state-tester__buttons">
-//   {states.map(({ state, label }) => (
-//     <button
-//       key={state}
-//       type="button"
-//       onClick={() => trigger(state)}
-//       className={currentState === state ? 'active' : undefined}
-//     >
-//       {label}
-//     </button>
-//   ))}
-// </div>

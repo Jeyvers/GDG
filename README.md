@@ -1,73 +1,96 @@
-# React + TypeScript + Vite
+# GDG OOU – Frontend Masterclass Workshop Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple **Tours** app built for the **Frontend Development Masterclass** by **Google Developer Groups (GDG) on Campus – Olabisi Onabanjo University (OOU)**. This repo is the workshop/sample project used during the hands-on session, demonstrating modern React patterns, accessibility, and testing.
 
-Currently, two official plugins are available:
+**Speaker:** Jeyi Adole — *Senior Frontend Developer, Payaza*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Event Details
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| | |
+|---|---|
+| **Theme** | Frontend Development Masterclass |
+| **Date** | Saturday, 31st January 2026 |
+| **Time** | 7:00 PM – 8:30 PM (WAT) |
+| **Duration** | 1 hour 30 minutes |
+| **Venue** | [Bevy (GDG OOU event)](https://gdg.community.dev/j/823hw69vkgyf6/) |
+| **Organizers** | GDG on Campus – Olabisi Onabanjo University (OOU) |
 
-## Expanding the ESLint configuration
+The masterclass covers framework techniques, AI integrations, **accessibility best practices**, and **testing strategies**, with a mix of theory and live coding.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## What This Project Covers
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **React + TypeScript + Vite** – Modern tooling and component structure  
+- **Mock data & state** – Faker.js, loading / error / empty states  
+- **Accessibility** – ARIA, live regions, keyboard (Escape), focus management, form labels  
+- **Testing** – Vitest, React Testing Library, Jest DOM, unit and component tests  
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Features
+
+- List of tours (mock API with [Faker](https://fakerjs.dev/))
+- Add tour form (image URL, name, description, date, creator)
+- Test-state controls to simulate loading, error, and empty responses
+- Accessible modal dialog with focus trap and Escape to close
+
+---
+
+## Prerequisites
+
+- **Node.js** (LTS recommended) and npm or yarn  
+- A code editor (e.g. VS Code)  
+- Basic familiarity with React and TypeScript  
+
+---
+
+## Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Other commands
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build    # Production build
+npm run preview  # Preview production build
+npm test         # Run tests (watch mode)
+npm run test:run # Run tests once
+npm run lint     # Run ESLint
 ```
+
+---
+
+## Project Structure (high level)
+
+```
+src/
+├── api/           # Mock tours API (fetch, add, state simulation)
+├── components/    # TourCard, TourList, AddTourForm, StateTester
+├── types/         # Tour, AddTourInput
+├── test/          # Vitest + RTL setup
+├── App.tsx        # Main app and data flow
+└── main.tsx       # Entry point
+```
+
+---
+
+## Contact
+
+- **Event coordinator:** Deborah  
+  - Email: fatokideborah9@gmail.com  
+  - Phone (text only): 09016962215  
+
+For questions about the event or this workshop repo, reach out to the coordinator above.
+
+---
+
+*Built for the GDG OOU Frontend Development Masterclass, January 2026.*
