@@ -38,8 +38,9 @@ describe('mockTours', () => {
     it('throws on error state', async () => {
       setMockQueryState(MockQueryState.ERROR)
       const promise = fetchTours()
+      const expectation = expect(promise).rejects.toThrow('Failed to load tours')
       await vi.advanceTimersByTimeAsync(800)
-      await expect(promise).rejects.toThrow('Failed to load tours')
+      await expectation
     })
 
     it('returns empty array on empty state', async () => {

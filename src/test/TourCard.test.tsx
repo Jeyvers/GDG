@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { TourCard } from './TourCard'
+import { TourCard } from '../components/TourCard'
 
 const mockTour = {
   id: '1',
